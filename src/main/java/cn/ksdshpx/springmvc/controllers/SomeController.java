@@ -12,7 +12,8 @@ public class SomeController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("msg", "Hello,SpringMVC!!");
-		mv.setViewName("/WEB-INF/views/success.jsp");
+		//mv.setViewName("/WEB-INF/views/success.jsp");
+		mv.setViewName("success");
 		return mv;
 	}
 

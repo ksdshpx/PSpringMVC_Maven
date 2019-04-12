@@ -4,4 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean id="/some.do"
 		class="cn.ksdshpx.springmvc.controllers.SomeController"></bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	<property name="prefix" value="/WEB-INF/views/"></property>
+    	<property name="suffix" value=".jsp"></property>
+    </bean>
 </beans>
