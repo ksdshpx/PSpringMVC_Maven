@@ -8,6 +8,8 @@
 </head>
 <body>
 	<h1>Success</h1>
-	msg:${msg }
+	msg:${msg }<br/>
+	name:${name }<br/>
+	age:${age }
 </body>
 </html>
