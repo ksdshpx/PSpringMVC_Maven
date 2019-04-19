@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/springmvc")
 public class MyController {
-	@RequestMapping("/myhello.do")
+	@RequestMapping("/myhello")
 	public ModelAndView doHello() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("name", "zhangSan");

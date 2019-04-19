@@ -7,8 +7,8 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	<context:component-scan base-package="cn.ksdshpx.springmvc.controllers.annotation"></context:component-scan>
-	<bean id="/some.do"
-		class="cn.ksdshpx.springmvc.controllers.SomeController"></bean>
+	<!-- <bean id="/some.do"
+		class="cn.ksdshpx.springmvc.controllers.SomeController"></bean> -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     	<property name="prefix" value="/WEB-INF/views/"></property>
     	<property name="suffix" value=".jsp"></property>
@@ -19,5 +19,5 @@
    	<!-- 静态资源访问处理方式二（框架自己处理）-->
    	<mvc:resources location="/htmls/" mapping="/htmls/*"></mvc:resources>
    	<mvc:resources location="/images/" mapping="/images/*"></mvc:resources>
-    
+    <mvc:annotation-driven/>
 </beans>
