@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/springmvc")
 public class MyController {
-	@RequestMapping(value="/myhello",method= {RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value="/myhello",method= {RequestMethod.POST,RequestMethod.GET},params= {"name=zhangSan","age!=12"})
 	public ModelAndView doHello() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("name", "zhangSan");
