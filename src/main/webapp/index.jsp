@@ -2,8 +2,34 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<%
+    String path = request.getRequestURI();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path;
+%>
+<base href="<%=basePath%>">
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			$.ajax({
+				url:"springmvc/myajax.do",
+				data:{
+					"name":"zhangSan",
+					"age":25
+				},
+				type:"POST",
+				dataType:"json",
+				success:function(resp){
+					alert(resp.name+":"+resp.age);
+				}
+			});
+		});
+	});
+</script>
 <title>index.jsp</title>
 </head>
 <body>
@@ -20,5 +46,6 @@
 		age:<input type="text" name="age"/><br/>
 		<input type="submit" value="TestRequestParamByObject"/>
 	</form><br/>
+	<button id="btn">发起Ajax请求</button>
 </body>
 </html>
