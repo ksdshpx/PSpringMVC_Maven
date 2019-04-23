@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,7 +22,9 @@ public class MyController {
 	}
 
 	@RequestMapping("/testReceiveParam")
-	public String testReceiveParam(HttpServletRequest request, String name, Integer age) {
+	public String testReceiveParam(HttpServletRequest request,
+			@RequestParam(value = "rname", required = false) String name,
+			@RequestParam(value = "rage", required = false) Integer age) {
 		System.out.println(name + ":" + age);
 		request.setAttribute("name", name);
 		request.setAttribute("age", age);
