@@ -14,6 +14,11 @@
 		name:<input type="text" name="rname"/><br/>
 		age:<input type="text" name="rage"/><br/>
 		<input type="submit" value="Submit"/>
-	</form>
+	</form><br/>
+	<form action="springmvc/testRequestParamByObject" method="post">
+		name:<input type="text" name="name"/><br/>
+		age:<input type="text" name="age"/><br/>
+		<input type="submit" value="TestRequestParamByObject"/>
+	</form><br/>
 </body>
 </html>
