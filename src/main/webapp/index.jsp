@@ -28,6 +28,20 @@
 				}
 			});
 		});
+		$("#btn2").click(function(){
+			$.ajax({
+				url:"springmvc/myajaxbyfastjson.do",
+				data:{
+					"name":"liSi",
+					"age":30
+				},
+				type:"POST",
+				dataType:"json",
+				success:function(resp){
+					alert(resp.name+":"+resp.age);
+				}
+			});
+		});
 	});
 </script>
 <title>index.jsp</title>
@@ -47,5 +61,6 @@
 		<input type="submit" value="TestRequestParamByObject"/>
 	</form><br/>
 	<button id="btn">发起Ajax请求</button>
+	<button id="btn2">发起Ajax2请求</button>
 </body>
 </html>

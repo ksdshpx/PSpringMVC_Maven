@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -55,10 +56,25 @@ public class MyController {
 		Student student = new Student();
 		student.setName(name);
 		student.setAge(age);
+		//JackSon将对象转换为json字符串
 		ObjectMapper objectMapper = new ObjectMapper();
 		String json = objectMapper.writeValueAsString(student);
 		System.out.println(json);
-		response.setContentType("text/html;charset=uft-8");
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		out.write(json);
+		out.flush();
+		out.close();
+	}
+	
+	@RequestMapping(value = "/myajaxbyfastjson.do")
+	public void doAjaxByFastJson(HttpServletResponse response, String name, Integer age) throws IOException {
+		Student student = new Student();
+		student.setName(name);
+		student.setAge(age);
+		String json = JSONObject.toJSONString(student);
+		System.out.println(json);
+		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		out.write(json);
 		out.flush();
