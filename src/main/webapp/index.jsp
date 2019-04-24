@@ -63,6 +63,18 @@
 				}
 			});
 		});
+		$("#btn5").click(function() {
+			$.ajax({
+				url : "springmvc/myajaxreturnlist.do",
+				type : "POST",
+				dataType : "json",
+				success : function(resp) {
+					$.each(resp,function(i,n){
+						alert(n.name+":"+n.age)
+					});
+				}
+			});
+		});
 	});
 </script>
 <title>index.jsp</title>
@@ -91,6 +103,8 @@
 	<button id="btn3">发起Ajax3请求(返回String数据)</button>
 	<br />
 	<button id="btn4">发起Ajax4请求(返回自定义对象数据)</button>
+	<br />
+	<button id="btn5">发起Ajax5请求(返回List数据)</button>
 	<br />
 </body>
 </html>

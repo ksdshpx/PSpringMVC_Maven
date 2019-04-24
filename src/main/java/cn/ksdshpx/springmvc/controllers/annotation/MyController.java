@@ -2,6 +2,8 @@ package cn.ksdshpx.springmvc.controllers.annotation;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import cn.ksdshpx.springmvc.beans.Student;
@@ -95,5 +96,20 @@ public class MyController {
 		student.setName("王五");
 		student.setAge(30);
 		return student;
+	}
+
+	@RequestMapping(value = "/myajaxreturnlist.do")
+	@ResponseBody
+	public List<Student> doAjaxReturnList() {
+		ArrayList<Student> list = new ArrayList<>();
+		Student student = new Student();
+		student.setName("王五");
+		student.setAge(30);
+		Student student2 = new Student();
+		student2.setName("赵六");
+		student2.setAge(25);
+		list.add(student);
+		list.add(student2);
+		return list;
 	}
 }
