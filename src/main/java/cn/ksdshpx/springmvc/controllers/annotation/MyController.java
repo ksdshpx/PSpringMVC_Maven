@@ -82,9 +82,18 @@ public class MyController {
 		out.close();
 	}
 
-	@RequestMapping(value = "/myajaxreturnstring.do",produces = "text/plain;charset=UTF-8")
+	@RequestMapping(value = "/myajaxreturnstring.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
 	public String doAjaxByFastJson(String name, Integer age) throws IOException {
 		return "Hello HttpMessageConverter:" + name;
+	}
+
+	@RequestMapping(value = "/myajaxreturnstu.do")
+	@ResponseBody
+	public Student doAjaxReturnStu() {
+		Student student = new Student();
+		student.setName("王五");
+		student.setAge(30);
+		return student;
 	}
 }
