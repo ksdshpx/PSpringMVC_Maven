@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -56,7 +57,7 @@ public class MyController {
 		Student student = new Student();
 		student.setName(name);
 		student.setAge(age);
-		//JackSon将对象转换为json字符串
+		// JackSon将对象转换为json字符串
 		ObjectMapper objectMapper = new ObjectMapper();
 		String json = objectMapper.writeValueAsString(student);
 		System.out.println(json);
@@ -66,7 +67,7 @@ public class MyController {
 		out.flush();
 		out.close();
 	}
-	
+
 	@RequestMapping(value = "/myajaxbyfastjson.do")
 	public void doAjaxByFastJson(HttpServletResponse response, String name, Integer age) throws IOException {
 		Student student = new Student();
@@ -79,5 +80,11 @@ public class MyController {
 		out.write(json);
 		out.flush();
 		out.close();
+	}
+
+	@RequestMapping(value = "/myajaxreturnstring.do",produces = "text/plain;charset=UTF-8")
+	@ResponseBody
+	public String doAjaxByFastJson(String name, Integer age) throws IOException {
+		return "Hello HttpMessageConverter:" + name;
 	}
 }

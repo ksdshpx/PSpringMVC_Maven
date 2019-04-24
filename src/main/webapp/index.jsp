@@ -42,6 +42,19 @@
 				}
 			});
 		});
+		$("#btn3").click(function(){
+			$.ajax({
+				url:"springmvc/myajaxreturnstring.do",
+				data:{
+					"name":"李四",
+					"age":30
+				},
+				type:"POST",
+				success:function(resp){
+					alert(resp);
+				}
+			});
+		});
 	});
 </script>
 <title>index.jsp</title>
@@ -60,7 +73,8 @@
 		age:<input type="text" name="age"/><br/>
 		<input type="submit" value="TestRequestParamByObject"/>
 	</form><br/>
-	<button id="btn">发起Ajax请求</button>
-	<button id="btn2">发起Ajax2请求</button>
+	<button id="btn">发起Ajax请求</button><br/>
+	<button id="btn2">发起Ajax2请求</button><br/>
+	<button id="btn3">发起Ajax3请求(返回String数据)</button>
 </body>
 </html>
