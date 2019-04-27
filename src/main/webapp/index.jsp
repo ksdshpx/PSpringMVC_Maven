@@ -106,5 +106,6 @@
 	<br />
 	<button id="btn5">发起Ajax5请求(返回List数据)</button>
 	<br />
+	<a href="springmvc/testPathVariable/delete/1">Test PathVariable</a>
 </body>
 </html>
