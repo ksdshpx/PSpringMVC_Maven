@@ -119,4 +119,19 @@ public class MyController {
 		System.out.println("testPathVariable:" + id);
 		return "success";
 	}
+
+	@RequestMapping("/forwardOtherProcess")
+	public ModelAndView forwardOtherProcess(@RequestParam("name") String name, @RequestParam("age") Integer age) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("name", name);
+		mv.addObject("age", age);
+		mv.setViewName("forward:doForward.do");
+		return mv;
+	}
+
+	@RequestMapping("/doForward.do")
+	public String doForward() {
+		System.out.println("doForward()...");
+		return "mysuccess";
+	}
 }

@@ -107,5 +107,7 @@
 	<button id="btn5">发起Ajax5请求(返回List数据)</button>
 	<br />
 	<a href="springmvc/testPathVariable/delete/1">Test PathVariable</a>
+	<br />
+	<a href="springmvc/forwardOtherProcess?name=zhangSan&age=25">Test ForwardOtherProcess</a>
 </body>
 </html>
