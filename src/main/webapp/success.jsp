@@ -9,7 +9,7 @@
 <body>
 	<h1>Success</h1>
 	msg:${msg }<br/>
-	name:${name }<br/>
-	age:${age }
+	name:${param.name }<br/>
+	age:${param.age }
 </body>
 </html>

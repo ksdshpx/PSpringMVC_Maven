@@ -109,5 +109,11 @@
 	<a href="springmvc/testPathVariable/delete/1">Test PathVariable</a>
 	<br />
 	<a href="springmvc/forwardOtherProcess?name=zhangSan&age=25">Test ForwardOtherProcess</a>
+	<br/>
+	<form action="springmvc/testRedirectReturnModelAndView">
+		姓名：<input type="text" name="name"/><br/>
+		年龄：<input type="text" name="age"/><br/>
+		<input type="submit" value="提交"/>
+	</form>
 </body>
 </html>

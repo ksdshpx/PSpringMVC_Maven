@@ -134,4 +134,13 @@ public class MyController {
 		System.out.println("doForward()...");
 		return "mysuccess";
 	}
+	
+	@RequestMapping("/testRedirectReturnModelAndView")
+	public ModelAndView testRedirectReturnModelAndView(@RequestParam("name") String name,@RequestParam("age") Integer age) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("name", name);
+		mv.addObject("age", age);
+		mv.setViewName("redirect:/success.jsp");
+		return mv;
+	}
 }
