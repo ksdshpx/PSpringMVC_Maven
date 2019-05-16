@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -21,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import cn.ksdshpx.springmvc.beans.Student;
 
+@SessionAttributes(value = {"student"})
 @Controller
 @RequestMapping("/springmvc")
 public class MyController {
@@ -142,5 +145,12 @@ public class MyController {
 		mv.addObject("age", age);
 		mv.setViewName("redirect:/success.jsp");
 		return mv;
+	}
+	
+	@RequestMapping("/testSessionAttributes")
+	public String testSessionAttributes(Map<String,Object> map) {
+		Student student = new Student("zhangSan", 15);
+		map.put("student", student);
+		return "mysuccess";
 	}
 }

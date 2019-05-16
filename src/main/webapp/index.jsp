@@ -69,8 +69,8 @@
 				type : "POST",
 				dataType : "json",
 				success : function(resp) {
-					$.each(resp,function(i,n){
-						alert(n.name+":"+n.age)
+					$.each(resp, function(i, n) {
+						alert(n.name + ":" + n.age)
 					});
 				}
 			});
@@ -108,12 +108,14 @@
 	<br />
 	<a href="springmvc/testPathVariable/delete/1">Test PathVariable</a>
 	<br />
-	<a href="springmvc/forwardOtherProcess?name=zhangSan&age=25">Test ForwardOtherProcess</a>
-	<br/>
+	<a href="springmvc/forwardOtherProcess?name=zhangSan&age=25">Test
+		ForwardOtherProcess</a>
+	<br />
 	<form action="springmvc/testRedirectReturnModelAndView">
-		姓名：<input type="text" name="name"/><br/>
-		年龄：<input type="text" name="age"/><br/>
-		<input type="submit" value="提交"/>
+		姓名：<input type="text" name="name" /><br /> 年龄：<input type="text"
+			name="age" /><br /> <input type="submit" value="提交" />
 	</form>
+	<br />
+	<a href="springmvc/testSessionAttributes">Test SessionAttributes</a>
 </body>
 </html>

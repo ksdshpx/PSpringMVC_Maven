@@ -9,6 +9,8 @@
 <body>
 	<h1>MySuccess</h1>
 	name:${name }<br/>
-	age:${age }
+	age:${age }<br/>
+	request student:${requestScope.student }<br/>
+	session student:${sessionScope.student }
 </body>
 </html>
