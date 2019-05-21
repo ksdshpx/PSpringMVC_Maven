@@ -117,5 +117,12 @@
 	</form>
 	<br />
 	<a href="springmvc/testSessionAttributes">Test SessionAttributes</a>
+	<br/>
+	<form action="springmvc/testModelAttribute">
+		<input type="hidden" name="id" value="1"/>
+		用户名：<input type="text" name="name"/><br/>
+		邮箱：<input type="text" name="email"/><br/>
+		<input type="submit" value="提交"/>
+	</form>
 </body>
 </html>

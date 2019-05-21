@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import cn.ksdshpx.springmvc.beans.Student;
+import cn.ksdshpx.springmvc.beans.User;
 
 @SessionAttributes(value = {"student"})
 @Controller
@@ -137,9 +139,10 @@ public class MyController {
 		System.out.println("doForward()...");
 		return "mysuccess";
 	}
-	
+
 	@RequestMapping("/testRedirectReturnModelAndView")
-	public ModelAndView testRedirectReturnModelAndView(@RequestParam("name") String name,@RequestParam("age") Integer age) {
+	public ModelAndView testRedirectReturnModelAndView(@RequestParam("name") String name,
+			@RequestParam("age") Integer age) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("name", name);
 		mv.addObject("age", age);
@@ -153,4 +156,21 @@ public class MyController {
 		map.put("student", student);
 		return "mysuccess";
 	}
+
+	@ModelAttribute
+	public void getUser(@RequestParam("id") String id, Map<String, Object> map) {
+		if (id != null) {
+			// 模拟根据id从数据库中取得数据
+			User user = new User(id, "zhangSan", "123456", "zhangSan@163.com");
+			System.out.println("从数据库中获取:" + user);
+			map.put("user", user);
+		}
+	}
+
+	@RequestMapping("/testModelAttribute")
+	public String testModelAttribute(User user) {
+		System.out.println("testModelAttribute:" + user);
+		return "mysuccess";
+	}
+
 }
