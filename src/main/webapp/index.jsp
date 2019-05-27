@@ -124,5 +124,7 @@
 		邮箱：<input type="text" name="email"/><br/>
 		<input type="submit" value="提交"/>
 	</form>
+	<br />
+	<a href="springmvc/testView">Test View</a>
 </body>
 </html>

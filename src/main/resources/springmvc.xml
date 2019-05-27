@@ -6,14 +6,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	<context:component-scan base-package="cn.ksdshpx.springmvc.controllers.annotation"></context:component-scan>
+	<context:component-scan base-package="cn.ksdshpx.springmvc.*"></context:component-scan>
 	<!-- <bean id="/some.do"
 		class="cn.ksdshpx.springmvc.controllers.SomeController"></bean> -->
+    
+    <!-- 配置根据bean名称解析的视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+    	<property name="order" value="10"></property>
+    </bean>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     	<property name="prefix" value="/WEB-INF/views/"></property>
     	<property name="suffix" value=".jsp"></property>
+    	<property name="order" value="100"></property>
     </bean>
-    
     <!-- 配置国际化资源文件 -->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
     	<property name="basename" value="i18n"></property>

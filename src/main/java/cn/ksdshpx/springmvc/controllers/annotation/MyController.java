@@ -157,6 +157,7 @@ public class MyController {
 		return "mysuccess";
 	}
 
+	/*
 	@ModelAttribute
 	public void getUser(@RequestParam("id") String id, Map<String, Object> map) {
 		if (id != null) {
@@ -166,6 +167,7 @@ public class MyController {
 			map.put("user", user);
 		}
 	}
+	*/
 
 	@RequestMapping("/testModelAttribute")
 	public String testModelAttribute(User user) {
@@ -173,4 +175,9 @@ public class MyController {
 		return "mysuccess";
 	}
 
+	@RequestMapping("/testView")
+	public String testView() {
+		System.out.println("testView");
+		return "helloView";
+	}
 }
