@@ -126,5 +126,7 @@
 	</form>
 	<br />
 	<a href="springmvc/testView">Test View</a>
+	<br />
+	<a href="book/201">Test RestFul PathVariable</a>
 </body>
 </html>
