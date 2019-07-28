@@ -25,4 +25,11 @@ public class RestController {
 		System.out.println("book id:" + id + ",isbn:" + isbn);
 		return "book id:" + id + ",isbn:" + isbn;
 	}
+
+	@RequestMapping(value = "/spring/{name:[a-z]+}-{version:\\d\\.\\d}")
+	@ResponseBody
+	public String doRegExpression(@PathVariable("name") String name, @PathVariable("version") String version) {
+		System.out.println("name:" + name + ",version:" + version);
+		return "name:" + name + ",version:" + version;
+	}
 }
