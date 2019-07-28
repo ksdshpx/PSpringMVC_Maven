@@ -19,10 +19,10 @@ public class RestController {
 		return "RestController doSome...";
 	}
 
-	@RequestMapping("/book/{bookId}")
+	@RequestMapping("/book/{bookId}/{isbn}")
 	@ResponseBody
-	public String doPathVariable(@PathVariable("bookId") Integer id) {
-		System.out.println("book id:" + id);
-		return "book id:" + id;
+	public String doPathVariable(@PathVariable("bookId") Integer id, @PathVariable("isbn") String isbn) {
+		System.out.println("book id:" + id + ",isbn:" + isbn);
+		return "book id:" + id + ",isbn:" + isbn;
 	}
 }
