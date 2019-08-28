@@ -1,7 +1,11 @@
 package cn.ksdshpx.springmvc.controllers.annotation;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,7 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class RestController {
 
-	@RequestMapping(value = "/some")
+	// @RequestMapping(value = "/some")
+	@GetMapping("/some")
 	@ResponseBody
 	public String doSome() {
 		System.out.println("RestController.doSome()...");
@@ -34,13 +39,15 @@ public class RestController {
 		return "name:" + name + ",version:" + version;
 	}
 
-	@RequestMapping(value = "book/doput", method = RequestMethod.PUT)
+	// @RequestMapping(value = "book/doput", method = RequestMethod.PUT)
+	@PutMapping("book/doput")
 	@ResponseBody
 	public String doPut() {
 		return "处理put请求";
 	}
-	
-	@RequestMapping(value = "book/dodelete", method = RequestMethod.DELETE)
+
+	// @RequestMapping(value = "book/dodelete", method = RequestMethod.DELETE)
+	@DeleteMapping("book/dodelete")
 	@ResponseBody
 	public String doDelete() {
 		return "处理delete请求";
