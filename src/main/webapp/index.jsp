@@ -128,5 +128,15 @@
 	<a href="springmvc/testView">Test View</a>
 	<br />
 	<a href="book/201/isbn001">Test RestFul PathVariable</a>
+	<br />
+	<form action="book/doput" method="post">
+		<input type="hidden" name="_method" value="put"/>
+		<input type="submit" value="put请求"/>
+	</form>
+	<br />
+	<form action="book/dodelete" method="post">
+		<input type="hidden" name="_method" value="delete"/>
+		<input type="submit" value="delete请求"/>
+	</form>
 </body>
 </html>
