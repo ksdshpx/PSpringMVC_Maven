@@ -138,5 +138,12 @@
 		<input type="hidden" name="_method" value="delete"/>
 		<input type="submit" value="delete请求"/>
 	</form>
+	
+	<br />
+	<form action="book/doRequestBody" method="post">
+		姓名:<input type="text" name="name"/><br/>
+		年龄:<input type="text" name="age"/><br/>
+		<input type="submit" value="测试requestbody"/>
+	</form>
 </body>
 </html>
