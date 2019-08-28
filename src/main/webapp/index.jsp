@@ -75,6 +75,17 @@
 				}
 			});
 		});
+		$("#testRequestBodyXml").click(function(){
+			$.ajax({
+				url : "book/requestbodyxml",
+				data : "<book><name>java</name><price>100></price></book>",
+				type : "POST",
+				contentType : "application/xml;charset=UTF-8",
+				success : function(resp){
+					alert(resp);
+				}
+			});
+		});
 	});
 </script>
 <title>index.jsp</title>
@@ -145,5 +156,8 @@
 		年龄:<input type="text" name="age"/><br/>
 		<input type="submit" value="测试requestbody"/>
 	</form>
+	
+	<br />
+	<button id="testRequestBodyXml">测试RequestBody接收xml数据</button>
 </body>
 </html>
