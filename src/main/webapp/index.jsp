@@ -86,6 +86,17 @@
 				}
 			});
 		});
+		$("#testRequestBodyJson").click(function(){
+			$.ajax({
+				url : "book/requestbodyjson",
+				data : '{"name":"docker","price":98.5}',
+				type : "POST",
+				contentType : "application/json;charset=utf-8",
+				success : function(resp){
+					alert(resp);
+				}
+			});
+		});
 	});
 </script>
 <title>index.jsp</title>
@@ -159,5 +170,7 @@
 	
 	<br />
 	<button id="testRequestBodyXml">测试RequestBody接收xml数据</button>
+	<br />
+	<button id="testRequestBodyJson">测试RequestBody接收Json数据</button>
 </body>
 </html>
