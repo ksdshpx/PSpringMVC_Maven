@@ -1,11 +1,14 @@
 package cn.ksdshpx.springmvc.controllers.annotation;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.ksdshpx.springmvc.beans.Book;
 import cn.ksdshpx.springmvc.beans.Book2;
+import cn.ksdshpx.springmvc.beans.Person;
 
 @RestController
 public class RestFulController {
@@ -25,5 +28,13 @@ public class RestFulController {
 	public String doRequestBodyJson(@RequestBody Book2 book) {
 		System.out.println("接收的Json数据为:" + book);
 		return book.toString();
+	}
+	
+	@GetMapping(value = "book/outxml",produces = "application/xml;charset=UTF-8")
+	public Person outXml() {
+		Person person = new Person();
+		person.setName("张三");
+		person.setAge(30);
+		return person;
 	}
 }

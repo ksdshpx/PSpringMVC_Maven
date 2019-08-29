@@ -40,14 +40,14 @@ public class RestController {
 	}
 
 	// @RequestMapping(value = "book/doput", method = RequestMethod.PUT)
-	@PutMapping("book/doput")
+	@PutMapping(value = "book/doput",produces = "text/html;charset=utf-8")
 	@ResponseBody
 	public String doPut() {
 		return "处理put请求";
 	}
 
 	// @RequestMapping(value = "book/dodelete", method = RequestMethod.DELETE)
-	@DeleteMapping("book/dodelete")
+	@DeleteMapping(value = "book/dodelete",produces = "text/html;charset=utf-8")
 	@ResponseBody
 	public String doDelete() {
 		return "处理delete请求";
