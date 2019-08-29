@@ -1,5 +1,8 @@
 package cn.ksdshpx.springmvc.beans;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 
 public class Human {
@@ -9,6 +12,9 @@ public class Human {
 	private Integer age;
 	private String sex;
 	private Integer weight;
+	@JsonView(View.Summary.class)
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd",timezone = "GMT+8")
+	private Date birthday;
 
 	public String getName() {
 		return name;
@@ -42,8 +48,18 @@ public class Human {
 		this.weight = weight;
 	}
 
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
 	@Override
 	public String toString() {
-		return "Human [name=" + name + ", age=" + age + ", sex=" + sex + ", weight=" + weight + "]";
+		return "Human [name=" + name + ", age=" + age + ", sex=" + sex + ", weight=" + weight + ", birthday=" + birthday
+				+ "]";
 	}
+
 }

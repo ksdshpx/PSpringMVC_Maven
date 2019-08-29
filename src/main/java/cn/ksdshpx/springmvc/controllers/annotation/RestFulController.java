@@ -1,5 +1,7 @@
 package cn.ksdshpx.springmvc.controllers.annotation;
 
+import java.util.Date;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -57,6 +59,7 @@ public class RestFulController {
 		human.setAge(20);
 		human.setSex("男");
 		human.setWeight(80);
+		human.setBirthday(new Date());
 		return human;
 	}
 }
