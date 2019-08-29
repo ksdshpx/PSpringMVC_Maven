@@ -3,6 +3,8 @@ package cn.ksdshpx.springmvc.controllers.annotation;
 import java.util.Date;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -69,5 +71,11 @@ public class RestFulController {
 	@ResponseStatus(code = HttpStatus.OK)
 	public void deleteBook() {
 		System.out.println("deleteBook()...");
+	}
+
+	@GetMapping("book/responseentity")
+	public ResponseEntity<String> responseEntity() {
+		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON_UTF8)
+				.body("{'name':'zhangSan'}");
 	}
 }
