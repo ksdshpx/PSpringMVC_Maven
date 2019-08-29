@@ -37,4 +37,12 @@ public class RestFulController {
 		person.setAge(30);
 		return person;
 	}
+	
+	@GetMapping(value = "book/outjson",produces = "application/json;charset=UTF-8")
+	public Person outJson() {
+		Person person = new Person();
+		person.setName("张三");
+		person.setAge(30);
+		return person;
+	}
 }
